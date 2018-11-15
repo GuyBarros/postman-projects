@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "218b90e4-bad1-4d2f-8d67-750fe556559e",
+		"name": "Vault",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Transit",
+			"item": [
+				{
+					"name": "List Keys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReWrap",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/rewrap/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"rewrap",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Data Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/datakey/plaintext/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"datakey",
+								"plaintext",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"equals": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"ecdsa-p256\",\n  \"derived\": true,\n  \"exportable\":true,\n  \"allow_plaintext_backup\":true\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Keys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Random",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bytes\":32,\n\t\"format\":\"base64\"\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/random",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hash Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"input\":\"adba32==\",\n\t\"format\":\"base64\"\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/hash/sha2-256",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"hash",
+								"sha2-256"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HMAC",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"input\":\"adba32==\",\n\t\"format\":\"base64\"\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/hmac/postman/sha2-512",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"hmac",
+								"postman",
+								"sha2-512"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"plaintext\": \"dGhlIHF1aWNrIGJyb3duIGZveA==\"\n }"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/encrypt/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"encrypt",
+								"postman"
+							]
+						},
+						"description": "Api to encrypt with a Vault Transit key. the key_version parameter is optional (if you want to use a specific version of your key, use it). the plain text must be a base64 version of your plain text"
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ciphertext\": \"vault:v1:XjsPWPjqPrBi1N2Ms2s1QM798YyFWnO4TR4lsFA=\"\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/decrypt/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"decrypt",
+								"postman"
+							]
+						},
+						"description": "Api to encrypt with a Vault Transit key. the key_version parameter is optional (if you want to use a specific version of your key, use it). the plain text must be a base64 version of your plain text"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Vault-Token",
+								"type": "text",
+								"value": "{{VAULT_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deletion_allowed\": true,\n    \"exportable\": true,\n    \"min_decryption_version\": 2,\n    \"min_encryption_version\": 2,\n     \"allow_plaintext_backup\": true\n  }"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys/postman/config",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys",
+								"postman",
+								"config"
+							]
+						},
+						"description": "API call configure a transit key."
+					},
+					"response": []
+				},
+				{
+					"name": "Rotate Keys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"type": "text",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys/postman/rotate",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys",
+								"postman",
+								"rotate"
+							]
+						},
+						"description": "Api to encrypt with a Vault Transit key. the key_version parameter is optional (if you want to use a specific version of your key, use it). the plain text must be a base64 version of your plain text"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Keys",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"ecdsa-p256\",\n  \"derived\": true,\n  \"exportable\":true,\n  \"allow_plaintext_backup\":true\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/keys/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"keys",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Keys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"equals": true,
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/transit/export/encryption-key/postman",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"transit",
+								"export",
+								"encryption-key",
+								"postman"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Config",
+			"item": [
+				{
+					"name": "Config - Create Audit File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"file\",\n    \"options\": {\n      \"file_path\": \"/Users/guy/vault_ent/vault_audit.log\",\n      \"log_raw\": false\n    }\n  }"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/sys/audit/file",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"sys",
+								"audit",
+								"file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config - Delete Audit File",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/sys/audit/file",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"sys",
+								"audit",
+								"file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Userpass - Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"equals": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Welcome1\"\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/auth/userpass/users/papp/password",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"userpass",
+								"users",
+								"papp",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plugins",
+			"item": [
+				{
+					"name": "Plugins - Generate Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Token",
+								"value": "{{VAULT_TOKEN}}",
+								"equals": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"length\":32,\n\t\"digits\":8,\n\t\"symbols\":10,\n\t\"allow_uppercase\":true,\n\t\"allow_repeat\":true\n}"
+						},
+						"url": {
+							"raw": "{{VAULT_ADDR}}/v1/gen/password",
+							"host": [
+								"{{VAULT_ADDR}}"
+							],
+							"path": [
+								"v1",
+								"gen",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plugins - Generate Passphrase",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Vault-Token",
+						"value": "{{VAULT_TOKEN}}",
+						"equals": true
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"words\":8,\n\t\"separator\":\"-\"\n}"
+				},
+				"url": {
+					"raw": "{{VAULT_ADDR}}/v1/gen/passphrase",
+					"host": [
+						"{{VAULT_ADDR}}"
+					],
+					"path": [
+						"v1",
+						"gen",
+						"passphrase"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
